@@ -10,16 +10,25 @@ import { Record } from './model/record.model';
 export class AppComponent implements OnInit{
 	
 	cars$: Car[];
+	currentCar$: Record;
+	carIdx: string;
 
 	constructor(private dataService: DataService){ }
 
-	check(){
-		console.log(this.cars$);
-	}
-	
-	ngOnInit(){
-		return this.dataService.getAllCars().
-			subscribe(data => this.cars$ = data);
+	getAllCars(){
+		return this.dataService.getAllCars()
+			.subscribe(data => this.cars$ = data);
 	}
 
+	ngOnInit(){
+		// return this.dataService.getAllCars().
+		// 	subscribe(data => this.cars$ = data);
+	}
+
+	getCarByIndex(idx: string){
+		if(idx !== undefined && idx.length >= 4){
+			return this.dataService.getCarByIndex(idx)
+				.subscribe(data => this.currentCar$ = data);
+		}
+	}
 }

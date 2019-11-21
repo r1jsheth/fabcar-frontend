@@ -1,5 +1,6 @@
-<h1>Fab Car</h1>
-<button (click) = "check()" >Check</button>
+<h1>Blockchain Empowered - Car Database</h1>
+<button (click) = "getAllCars()">List All Cars</button>
+<br>
 <table>
 	<tr>
 		<th>Sr No</th>
@@ -14,5 +15,28 @@
 		<td>{{ item.Record.make }}</td>
 		<td>{{ item.Record.colour }}</td>
 		<td>{{ item.Record.owner }}</td>
+	</tr>
+</table>
+
+<br>
+<br>
+
+<button (click) = "getCarByIndex(carIdx)">Get Car by Index = {{ carIdx }}</button>
+<br>
+<h3>Enter Car index:</h3>
+<input [(ngModel)]="carIdx">
+<br>
+<table *ngIf="currentCar$ !== undefined">
+	<tr>
+		<th>Model</th>
+		<th>Company</th>
+		<th>Color</th>
+		<th>Owner</th>
+	</tr>
+	<tr>
+		<td *ngIf="currentCar$.model !== undefined">{{ currentCar$.model }}</td>
+		<td *ngIf="currentCar$.make !== undefined">{{ currentCar$.make }}</td>
+		<td *ngIf="currentCar$.colour !== undefined">{{ currentCar$.colour }}</td>
+		<td *ngIf="currentCar$.owner !== undefined">{{ currentCar$.owner }}</td>
 	</tr>
 </table>
