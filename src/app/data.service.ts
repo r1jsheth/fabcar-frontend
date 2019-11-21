@@ -7,7 +7,9 @@ import { Record } from './model/record.model';
 	providedIn: 'root'
 })
 export class DataService {
-	apiURL = 'http://localhost:8911/api';
+	IP_ADDRESS = 'http://54.224.232.106';
+	PORT_NUMBER = '8080';
+	apiURL = this.IP_ADDRESS + ':' + this.PORT_NUMBER + '/api';
 	
 	
 	constructor(private _http: HttpClient) { }
