@@ -7,7 +7,7 @@ import { Record } from './model/record.model';
 	providedIn: 'root'
 })
 export class DataService {
-	IP_ADDRESS = 'http://54.224.232.106';
+	IP_ADDRESS = 'https://54.224.232.106';
 	PORT_NUMBER = '8080';
 	apiURL = this.IP_ADDRESS + ':' + this.PORT_NUMBER + '/api';
 	
