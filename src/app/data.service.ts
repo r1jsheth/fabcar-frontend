@@ -31,36 +31,15 @@ export class DataService {
 		
 		// this._http.post(apiURL + '/api/addcar', car).subscribe(
 
-		this._http.post(apiURL, car).subscribe(
-			(val) => {
-				console.log("POST call successful value returned in body",
-					val);
-			},
-			response => {
-				console.log("POST call in error", response);
-			},
-			() => {
-				console.log("The POST observable is now completed.");
-			});
+		return this._http.post(apiURL, car);
 	}
 
-	POSTchangeCarOwner(apiURL : string, carIdx: string, owner : string){
+	GETchangeCarOwner(apiURL : string, carIdx: string, owner : string){
 
-		let httpParams = new HttpParams();
-		httpParams.set('owner', owner);
-		httpParams.set('carIdx', carIdx);
-		this._http.get<String>(apiURL, {params: httpParams})
-		.subscribe(
-			(val) => {
-				console.log("GET call successful value returned in body",
-					val);
-			},
-			response => {
-				console.log("Some error occured!", response);
-			},
-			() => {
-				console.log("Transaction Successful!");
-			});
+		let cur = apiURL + '?carid=' + carIdx + '&owner=' + owner;
+		console.log(cur);
+		return this._http.get<String>(cur);
+		
 
 	}
 
