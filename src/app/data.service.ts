@@ -15,11 +15,13 @@ export class DataService {
 	constructor(private _http: HttpClient) { }
 
 	getAllCars(apiURL){
-		return this._http.get<Car[]>(apiURL + '/api/queryallcars');
+		// return this._http.get<Car[]>(apiURL + '/api/queryallcars');
+		return this._http.get<Car[]>(apiURL);
 	}
 
 	getCarByIndex(apiURL,idx: string){
-		return this._http.get<Record>(apiURL + '/api/query/' + idx);
+		// return this._http.get<Record>(apiURL + '/api/query/' + idx);
+		return this._http.get<Record>(apiURL + '/' + idx);
 	}
 
 }
