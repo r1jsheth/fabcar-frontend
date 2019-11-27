@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
 
 	toggleString(){
 		if (this.httpsString == 'http://localhost:8911') {
-			this.httpsString = 'http://184.73.99.180:8080';
+			this.httpsString = 'https://4gvgjptrph.execute-api.us-east-1.amazonaws.com/test';
 		}
 		else{
 			this.httpsString = 'http://localhost:8911';
