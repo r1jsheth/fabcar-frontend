@@ -72,7 +72,15 @@ export class AppComponent implements OnInit{
 				(val) => {
 					console.log("POST call successful value returned in body",
 						val);
-					window.alert("Successful! " + val)
+					if (val.hasOwnProperty('errorMessage')){
+						// window.alert('Some error occured!');
+						this.openError('Some error occured!');
+					}
+					else{
+						
+						this.openSuccess('Successful!' + val);
+						// window.alert("Successful! " + val)
+					}
 				},
 				response => {
 					// window.Error("Error in POST" + response);
